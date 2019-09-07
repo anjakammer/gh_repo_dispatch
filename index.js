@@ -15,8 +15,7 @@ const repoDispatch = (url, body, token) => requestp({
 })
 
 const repo = process.env.REPO
-const owner = process.env.OWNER
-const apiURL = `http://api.github.com/repos/${owner}/${repo}/dispatches`
+const apiURL = `http://api.github.com/repos/${repo}/dispatches`
 const body = `{ event_type: ${process.env.EVENT_TYPE} }`
 
 if (typeof process.env.TOKEN === 'undefined') {
