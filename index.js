@@ -9,14 +9,12 @@ const repoDispatch = (url, body, token) => requestp({
     'Accept': 'application/vnd.github.everest-preview+json'
   },
   method: 'POST',
-  body: {
-    body
-  }
+  body
 })
 
 const repo = process.env.REPO
 const apiURL = `http://api.github.com/repos/${repo}/dispatches`
-const body = `{ event_type: ${process.env.EVENT_TYPE} }`
+const body = `{ "event_type": "${process.env.EVENT_TYPE}" }`
 
 if (typeof process.env.TOKEN === 'undefined') {
   console.error('No token defined! Abort.')
